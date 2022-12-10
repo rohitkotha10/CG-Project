@@ -57,14 +57,15 @@ void main() {
 
     float shadow = 0.0f;
     vec2 texelSize = 1.0 / textureSize(depthMap, 0);
-    for (int i = -1; i < 1; i++) {
-        for (int j = -1; j < 1; j++) {
+
+    for (int i = -2; i < 2; i++) {
+        for (int j = -2; j < 2; j++) {
             vec2 sel = temp.xy + vec2(i, j) * texelSize;
             float depTemp = texture(depthMap, sel).r;
             if (temp.z - bias > depTemp) shadow += 1.0f;
         }
     }
-    shadow = shadow / 9.0f;
+    shadow = shadow / 16.0f;
 
     if (temp.z >= 1.0 - bias) shadow = 0.0f;
 
