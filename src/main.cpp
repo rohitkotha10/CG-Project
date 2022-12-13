@@ -1,9 +1,12 @@
 #include "importer.h"
 #include "framebuffer.h"
 
-using namespace CG;
 using namespace std;
+using namespace CG;
 
+/**
+ * @brief so that cursor operates properly
+ */
 bool firstMouse = true;
 int press = 0;
 
@@ -323,6 +326,7 @@ int main() {
         // process inputs
         const float cameraSpeed = 2.5f * deltaTime;  // adjust accordingly
 
+        // simulate pan here
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) cameraPos += cameraSpeed * cameraFront;
         if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) cameraPos -= cameraSpeed * cameraFront;
         if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) cameraPos -= cameraSpeed * cameraRight;
@@ -330,7 +334,7 @@ int main() {
         if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) cameraPos -= cameraSpeed * cameraUp;
         if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) cameraPos += cameraSpeed * cameraUp;
 
-        // roll, q and e
+        // simulate roll, q and e
         float rollSpeed = 50.0f * deltaTime;
 
         if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
