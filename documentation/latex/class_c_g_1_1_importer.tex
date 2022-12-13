@@ -10,9 +10,9 @@
 void \mbox{\hyperlink{class_c_g_1_1_importer_a9a7448991612da0b267e89c5b61bccbb}{load\+Model}} (std\+::string path)
 \begin{DoxyCompactList}\small\item\em process the model from path and triangulate it using assimp \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_g_1_1_importer_a59fa7840a541740e07911c5d27f94e48}{draw}} (\mbox{\hyperlink{class_c_g_1_1_program}{Program}} \&program)
-\item 
+\begin{DoxyCompactList}\small\item\em draw all the meshes in the model \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_g_1_1_importer_a10c49220c70dafac494ec1aefe1a0080}{shutdown}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em clean up all the meshes in the model \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -49,6 +49,15 @@ Definition at line \mbox{\hyperlink{importer_8h_source_l00009}{9}} of file \mbox
 \doxysubsubsection{\texorpdfstring{draw()}{draw()}}
 {\footnotesize\ttfamily void CG\+::\+Importer\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_g_1_1_program}{Program}} \&}]{program }\end{DoxyParamCaption})}
 
+
+
+draw all the meshes in the model 
+
+
+\begin{DoxyParams}{Parameters}
+{\em program} & the shader program to use for rendering \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{importer_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{importer_8cpp_source}{importer.\+cpp}}.
@@ -173,6 +182,10 @@ Definition at line \mbox{\hyperlink{importer_8cpp_source_l00023}{23}} of file \m
 
 
 
+clean up all the meshes in the model 
+
+
+
 Definition at line \mbox{\hyperlink{importer_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{importer_8cpp_source}{importer.\+cpp}}.
 
 
@@ -190,7 +203,7 @@ source directory
 
 
 
-Definition at line \mbox{\hyperlink{importer_8h_source_l00027}{27}} of file \mbox{\hyperlink{importer_8h_source}{importer.\+h}}.
+Definition at line \mbox{\hyperlink{importer_8h_source_l00034}{34}} of file \mbox{\hyperlink{importer_8h_source}{importer.\+h}}.
 
 \mbox{\Hypertarget{class_c_g_1_1_importer_a3a5fb23facb337587f5423c7ff3fec0a}\label{class_c_g_1_1_importer_a3a5fb23facb337587f5423c7ff3fec0a}} 
 \index{CG::Importer@{CG::Importer}!meshes@{meshes}}
@@ -204,7 +217,7 @@ the model is split into many meshes
 
 
 
-Definition at line \mbox{\hyperlink{importer_8h_source_l00023}{23}} of file \mbox{\hyperlink{importer_8h_source}{importer.\+h}}.
+Definition at line \mbox{\hyperlink{importer_8h_source_l00030}{30}} of file \mbox{\hyperlink{importer_8h_source}{importer.\+h}}.
 
 \mbox{\Hypertarget{class_c_g_1_1_importer_ad8297a63dcf7b21e515b28e0010dcaa9}\label{class_c_g_1_1_importer_ad8297a63dcf7b21e515b28e0010dcaa9}} 
 \index{CG::Importer@{CG::Importer}!textures\_loaded@{textures\_loaded}}
@@ -218,7 +231,7 @@ to avoid loading same texture multiple times, use this
 
 
 
-Definition at line \mbox{\hyperlink{importer_8h_source_l00031}{31}} of file \mbox{\hyperlink{importer_8h_source}{importer.\+h}}.
+Definition at line \mbox{\hyperlink{importer_8h_source_l00038}{38}} of file \mbox{\hyperlink{importer_8h_source}{importer.\+h}}.
 
 
 
