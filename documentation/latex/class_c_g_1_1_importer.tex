@@ -1,0 +1,228 @@
+\hypertarget{class_c_g_1_1_importer}{}\doxysection{CG\+::Importer Class Reference}
+\label{class_c_g_1_1_importer}\index{CG::Importer@{CG::Importer}}
+
+
+{\ttfamily \#include $<$importer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_g_1_1_importer_a9a7448991612da0b267e89c5b61bccbb}{load\+Model}} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em process the model from path and triangulate it using assimp \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_importer_a59fa7840a541740e07911c5d27f94e48}{draw}} (\mbox{\hyperlink{class_c_g_1_1_program}{Program}} \&program)
+\item 
+void \mbox{\hyperlink{class_c_g_1_1_importer_a10c49220c70dafac494ec1aefe1a0080}{shutdown}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_g_1_1_importer_aa53dec73b927cf66b82fa50a738e147a}{process\+Node}} (ai\+Node $\ast$node, const ai\+Scene $\ast$scene)
+\begin{DoxyCompactList}\small\item\em start processing node recursively \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_c_g_1_1_mesh}{Mesh}} \mbox{\hyperlink{class_c_g_1_1_importer_a08983ce3ad835f27084bb80121fbe840}{process\+Mesh}} (ai\+Mesh $\ast$mesh, const ai\+Scene $\ast$scene)
+\begin{DoxyCompactList}\small\item\em generate vertices, textures, color and save it \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_c_g_1_1_texture}{Texture}} $>$ \mbox{\hyperlink{class_c_g_1_1_importer_a24fb733bc6d9ff268c6a4145f5856b11}{load\+Material\+Textures}} (ai\+Material $\ast$mat, ai\+Texture\+Type type, std\+::string type\+Name)
+\begin{DoxyCompactList}\small\item\em load textures based on type \end{DoxyCompactList}\item 
+glm\+::vec4 \mbox{\hyperlink{class_c_g_1_1_importer_ac1f42fecbed0f2b767a3eb16ca207d53}{load\+Color}} (ai\+Material $\ast$mat)
+\begin{DoxyCompactList}\small\item\em load the diffuse color only from material \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_c_g_1_1_mesh}{Mesh}} $>$ \mbox{\hyperlink{class_c_g_1_1_importer_a3a5fb23facb337587f5423c7ff3fec0a}{meshes}}
+\begin{DoxyCompactList}\small\item\em the model is split into many meshes \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_c_g_1_1_importer_afdba09dbf0b53bd97a40a0accdfea010}{directory}}
+\begin{DoxyCompactList}\small\item\em source directory \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_c_g_1_1_texture}{Texture}} $>$ \mbox{\hyperlink{class_c_g_1_1_importer_ad8297a63dcf7b21e515b28e0010dcaa9}{textures\+\_\+loaded}}
+\begin{DoxyCompactList}\small\item\em to avoid loading same texture multiple times, use this \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{importer_8h_source_l00009}{9}} of file \mbox{\hyperlink{importer_8h_source}{importer.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_g_1_1_importer_a59fa7840a541740e07911c5d27f94e48}\label{class_c_g_1_1_importer_a59fa7840a541740e07911c5d27f94e48}} 
+\index{CG::Importer@{CG::Importer}!draw@{draw}}
+\index{draw@{draw}!CG::Importer@{CG::Importer}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void CG\+::\+Importer\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_g_1_1_program}{Program}} \&}]{program }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{importer_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{importer_8cpp_source}{importer.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_importer_ac1f42fecbed0f2b767a3eb16ca207d53}\label{class_c_g_1_1_importer_ac1f42fecbed0f2b767a3eb16ca207d53}} 
+\index{CG::Importer@{CG::Importer}!loadColor@{loadColor}}
+\index{loadColor@{loadColor}!CG::Importer@{CG::Importer}}
+\doxysubsubsection{\texorpdfstring{loadColor()}{loadColor()}}
+{\footnotesize\ttfamily glm\+::vec4 CG\+::\+Importer\+::load\+Color (\begin{DoxyParamCaption}\item[{ai\+Material $\ast$}]{mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+load the diffuse color only from material 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & the assimp material \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the color vector 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{importer_8cpp_source_l00116}{116}} of file \mbox{\hyperlink{importer_8cpp_source}{importer.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_importer_a24fb733bc6d9ff268c6a4145f5856b11}\label{class_c_g_1_1_importer_a24fb733bc6d9ff268c6a4145f5856b11}} 
+\index{CG::Importer@{CG::Importer}!loadMaterialTextures@{loadMaterialTextures}}
+\index{loadMaterialTextures@{loadMaterialTextures}!CG::Importer@{CG::Importer}}
+\doxysubsubsection{\texorpdfstring{loadMaterialTextures()}{loadMaterialTextures()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{struct_c_g_1_1_texture}{Texture}} $>$ CG\+::\+Importer\+::load\+Material\+Textures (\begin{DoxyParamCaption}\item[{ai\+Material $\ast$}]{mat,  }\item[{ai\+Texture\+Type}]{type,  }\item[{std\+::string}]{type\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+load textures based on type 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & the assimp material \\
+\hline
+{\em type} & the type to search for in assimp \\
+\hline
+{\em type\+Name} & can be only diffuse or specular \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array of textures to be applied on the mesh 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{importer_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{importer_8cpp_source}{importer.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_importer_a9a7448991612da0b267e89c5b61bccbb}\label{class_c_g_1_1_importer_a9a7448991612da0b267e89c5b61bccbb}} 
+\index{CG::Importer@{CG::Importer}!loadModel@{loadModel}}
+\index{loadModel@{loadModel}!CG::Importer@{CG::Importer}}
+\doxysubsubsection{\texorpdfstring{loadModel()}{loadModel()}}
+{\footnotesize\ttfamily void CG\+::\+Importer\+::load\+Model (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+
+
+process the model from path and triangulate it using assimp 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & source directory \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{importer_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{importer_8cpp_source}{importer.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_importer_a08983ce3ad835f27084bb80121fbe840}\label{class_c_g_1_1_importer_a08983ce3ad835f27084bb80121fbe840}} 
+\index{CG::Importer@{CG::Importer}!processMesh@{processMesh}}
+\index{processMesh@{processMesh}!CG::Importer@{CG::Importer}}
+\doxysubsubsection{\texorpdfstring{processMesh()}{processMesh()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_g_1_1_mesh}{Mesh}} CG\+::\+Importer\+::process\+Mesh (\begin{DoxyParamCaption}\item[{ai\+Mesh $\ast$}]{mesh,  }\item[{const ai\+Scene $\ast$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+generate vertices, textures, color and save it 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh} & the mesh generated by assimp \\
+\hline
+{\em scene} & the source for our whole model generated by assimp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mesh 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{importer_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{importer_8cpp_source}{importer.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_importer_aa53dec73b927cf66b82fa50a738e147a}\label{class_c_g_1_1_importer_aa53dec73b927cf66b82fa50a738e147a}} 
+\index{CG::Importer@{CG::Importer}!processNode@{processNode}}
+\index{processNode@{processNode}!CG::Importer@{CG::Importer}}
+\doxysubsubsection{\texorpdfstring{processNode()}{processNode()}}
+{\footnotesize\ttfamily void CG\+::\+Importer\+::process\+Node (\begin{DoxyParamCaption}\item[{ai\+Node $\ast$}]{node,  }\item[{const ai\+Scene $\ast$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+start processing node recursively 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & each node has set of child nodes and a set of meshes in it \\
+\hline
+{\em scene} & the source for our whole model generated by assimp \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{importer_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{importer_8cpp_source}{importer.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_importer_a10c49220c70dafac494ec1aefe1a0080}\label{class_c_g_1_1_importer_a10c49220c70dafac494ec1aefe1a0080}} 
+\index{CG::Importer@{CG::Importer}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!CG::Importer@{CG::Importer}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void CG\+::\+Importer\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{importer_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{importer_8cpp_source}{importer.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_c_g_1_1_importer_afdba09dbf0b53bd97a40a0accdfea010}\label{class_c_g_1_1_importer_afdba09dbf0b53bd97a40a0accdfea010}} 
+\index{CG::Importer@{CG::Importer}!directory@{directory}}
+\index{directory@{directory}!CG::Importer@{CG::Importer}}
+\doxysubsubsection{\texorpdfstring{directory}{directory}}
+{\footnotesize\ttfamily std\+::string CG\+::\+Importer\+::directory\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+source directory 
+
+
+
+Definition at line \mbox{\hyperlink{importer_8h_source_l00027}{27}} of file \mbox{\hyperlink{importer_8h_source}{importer.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_importer_a3a5fb23facb337587f5423c7ff3fec0a}\label{class_c_g_1_1_importer_a3a5fb23facb337587f5423c7ff3fec0a}} 
+\index{CG::Importer@{CG::Importer}!meshes@{meshes}}
+\index{meshes@{meshes}!CG::Importer@{CG::Importer}}
+\doxysubsubsection{\texorpdfstring{meshes}{meshes}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_c_g_1_1_mesh}{Mesh}}$>$ CG\+::\+Importer\+::meshes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+the model is split into many meshes 
+
+
+
+Definition at line \mbox{\hyperlink{importer_8h_source_l00023}{23}} of file \mbox{\hyperlink{importer_8h_source}{importer.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_importer_ad8297a63dcf7b21e515b28e0010dcaa9}\label{class_c_g_1_1_importer_ad8297a63dcf7b21e515b28e0010dcaa9}} 
+\index{CG::Importer@{CG::Importer}!textures\_loaded@{textures\_loaded}}
+\index{textures\_loaded@{textures\_loaded}!CG::Importer@{CG::Importer}}
+\doxysubsubsection{\texorpdfstring{textures\_loaded}{textures\_loaded}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_c_g_1_1_texture}{Texture}}$>$ CG\+::\+Importer\+::textures\+\_\+loaded\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+to avoid loading same texture multiple times, use this 
+
+
+
+Definition at line \mbox{\hyperlink{importer_8h_source_l00031}{31}} of file \mbox{\hyperlink{importer_8h_source}{importer.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{importer_8h}{importer.\+h}}\item 
+src/\mbox{\hyperlink{importer_8cpp}{importer.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,39 @@
+\hypertarget{program_8h_source}{}\doxysection{program.\+h}
+\label{program_8h_source}\index{src/program.h@{src/program.h}}
+\mbox{\hyperlink{program_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00002}00002 \textcolor{preprocessor}{\#include <glad/glad.h>}}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <GLFW/glfw3.h>}}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <glm/gtc/type\_ptr.hpp>}}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00009}00009 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00010}00010 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00011}00011 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00012}00012 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00014}00014 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_c_g}{CG}} \{}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00020}\mbox{\hyperlink{namespace_c_g_aba55d887d610d2db8fefb73d30d9292e}{00020}}     std::string \mbox{\hyperlink{namespace_c_g_a0174193cdb5aff397736a72dadcc2e25}{parse}}(std::string shaderPath);}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00022}\mbox{\hyperlink{class_c_g_1_1_program}{00022}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_c_g_1_1_program}{Program}} \{}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00023}00023     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00029}00029         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_program_a6d30343fdcf546a75d9e5050dbb52244}{create}}(std::string vsSource, std::string fsSource);}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00033}00033         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_program_a9a666b59746a1e4a18a7f6161f6e8761}{use}}();}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00037}00037         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_program_a1363829b180d7c2f0da293ddca075a73}{shutdown}}();}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00043}00043         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_program_ae41b030266b2a988c00794e4099eb349}{setInt}}(std::string name, \textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00049}00049         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_program_ac11692728c10539c640aaefa8cc66eb2}{setFloat}}(std::string name, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00055}00055         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_program_a55ac953af0ce9fd8e9048eb837e4cc50}{setMat4}}(std::string name, \textcolor{keyword}{const} glm::mat4\& data);}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00064}\mbox{\hyperlink{class_c_g_1_1_program_adb0ba2f97a7af385ea5cc77e14a4a69d}{00064}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_program_adb0ba2f97a7af385ea5cc77e14a4a69d}{setVec4}}(std::string name, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{float} z, \textcolor{keywordtype}{float} a);}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00070}\mbox{\hyperlink{class_c_g_1_1_program_ac0a099b277bc506e145642e586056378}{00070}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_program_ac0a099b277bc506e145642e586056378}{setVec4}}(std::string name, \textcolor{keyword}{const} glm::vec4\& data);}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00078}\mbox{\hyperlink{class_c_g_1_1_program_a65e47e744bd47f8b150843df80c65232}{00078}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_program_a65e47e744bd47f8b150843df80c65232}{setVec3}}(std::string name, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{float} z);}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00084}\mbox{\hyperlink{class_c_g_1_1_program_a3a8bc51b8bdd494c1776598e93ce7461}{00084}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_program_a3a8bc51b8bdd494c1776598e93ce7461}{setVec3}}(std::string name, \textcolor{keyword}{const} glm::vec3\& data);}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00086}00086     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00090}\mbox{\hyperlink{class_c_g_1_1_program_a377adfc20b85e3fcf9703e1b4f9cec61}{00090}}         GLuint \mbox{\hyperlink{class_c_g_1_1_program_a377adfc20b85e3fcf9703e1b4f9cec61}{id}};}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00091}00091     \};}
+\DoxyCodeLine{\Hypertarget{program_8h_source_l00092}00092 \}  \textcolor{comment}{// namespace CG}}
+
+\end{DoxyCode}

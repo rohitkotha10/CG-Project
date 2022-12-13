@@ -1,0 +1,41 @@
+\hypertarget{primitives_8cpp_source}{}\doxysection{primitives.\+cpp}
+\label{primitives_8cpp_source}\index{src/primitives.cpp@{src/primitives.cpp}}
+\mbox{\hyperlink{primitives_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{primitives_8h}{primitives.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00003}00003 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00005}00005 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_c_g}{CG}} \{}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00006}\mbox{\hyperlink{struct_c_g_1_1_texture_a65e5a6e3e58f90e260ff7d59ea720c73}{00006}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{struct_c_g_1_1_texture_a65e5a6e3e58f90e260ff7d59ea720c73}{Texture::loadTexture}}(\textcolor{keywordtype}{string} path, \textcolor{keywordtype}{string} typeName) \{}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00007}00007         glGenTextures(1, \&(this-\/>\textcolor{keywordtype}{id}));}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00008}00008         glBindTexture(GL\_TEXTURE\_2D, this-\/>\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00009}00009         glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_S, GL\_REPEAT);}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00010}00010         glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_T, GL\_REPEAT);}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00011}00011         glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00012}00012         glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00014}00014         stbi\_set\_flip\_vertically\_on\_load(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00015}00015         \textcolor{keywordtype}{int} width, height, nrChannels;}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00016}00016         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* data = stbi\_load(\mbox{\hyperlink{struct_c_g_1_1_texture_aceae71d4f5defcde2261477084e83157}{path}}.c\_str(), \&width, \&height, \&nrChannels, 0);}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00017}00017         \textcolor{keywordflow}{if} (data) \{}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00018}00018             GLenum format = 3;}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00019}00019             \textcolor{keywordflow}{if} (nrChannels == 1)}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00020}00020                 format = GL\_RED;}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00021}00021             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (nrChannels == 3)}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00022}00022                 format = GL\_RGB;}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00023}00023             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (nrChannels == 4)}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00024}00024                 format = GL\_RGBA;}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00025}00025             glTexImage2D(GL\_TEXTURE\_2D, 0, format, width, height, 0, format, GL\_UNSIGNED\_BYTE, data);}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00026}00026             glGenerateMipmap(GL\_TEXTURE\_2D);}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00027}00027         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00028}00028             std::cout << \textcolor{stringliteral}{"{}Failed to load texture: "{}} << \mbox{\hyperlink{struct_c_g_1_1_texture_aceae71d4f5defcde2261477084e83157}{path}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00029}00029         \}}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00030}00030         stbi\_image\_free(data);}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00032}00032         this-\/>\mbox{\hyperlink{struct_c_g_1_1_texture_acb5e9d440c22153ec7d8628cc00d0018}{type}} = typeName;}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00033}00033         this-\/>path = \mbox{\hyperlink{struct_c_g_1_1_texture_aceae71d4f5defcde2261477084e83157}{path}};}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00034}00034     \}}
+\DoxyCodeLine{\Hypertarget{primitives_8cpp_source_l00035}00035 \}  \textcolor{comment}{// namespace CG}}
+
+\end{DoxyCode}

@@ -1,0 +1,187 @@
+\hypertarget{class_c_g_1_1_framebuffer}{}\doxysection{CG\+::Framebuffer Class Reference}
+\label{class_c_g_1_1_framebuffer}\index{CG::Framebuffer@{CG::Framebuffer}}
+
+
+{\ttfamily \#include $<$framebuffer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_g_1_1_framebuffer_a60ea1f75fa492877d229b155c61032a0}{create}} (int scrw, int scrh)
+\begin{DoxyCompactList}\small\item\em create a frame buffer texture with depth and stencil buffer enabled and also a quad to display the framebuffer on screen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_framebuffer_ae0ea98396556df470e77ff0f42061d10}{shutdown}} ()
+\begin{DoxyCompactList}\small\item\em clean up the framebuffer and the quad \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_framebuffer_a6a9665d736eb2e861599155ce66c8250}{drawfbo}} (\mbox{\hyperlink{class_c_g_1_1_program}{Program}} \&program)
+\begin{DoxyCompactList}\small\item\em draw the framebuffer texture on the window \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLuint \mbox{\hyperlink{class_c_g_1_1_framebuffer_a9e65d388f3c7d4d76d5e393f3d47e606}{id}}
+\begin{DoxyCompactList}\small\item\em id returned from gl\+Create \end{DoxyCompactList}\item 
+GLuint \mbox{\hyperlink{class_c_g_1_1_framebuffer_a9389d56bbfdbb8cb828340d8899e2108}{texture}}
+\begin{DoxyCompactList}\small\item\em framebuffer texture \end{DoxyCompactList}\item 
+GLuint \mbox{\hyperlink{class_c_g_1_1_framebuffer_a383bb807406bba8f6b9e04161e40461d}{rbo}}
+\begin{DoxyCompactList}\small\item\em depth and stencil buffer stored in the render buffer object \end{DoxyCompactList}\item 
+GLuint \mbox{\hyperlink{class_c_g_1_1_framebuffer_a30c76e02ae04450c295d0ea37e791e44}{quadvao}}
+\begin{DoxyCompactList}\small\item\em quad vertex array object \end{DoxyCompactList}\item 
+GLuint \mbox{\hyperlink{class_c_g_1_1_framebuffer_a2851648717228097c17ff15ee80b7fed}{quadvbo}}
+\begin{DoxyCompactList}\small\item\em quad vertex buffer object \end{DoxyCompactList}\item 
+GLuint \mbox{\hyperlink{class_c_g_1_1_framebuffer_a5a0f14750941c7f8302a6df3afec9159}{quadebo}}
+\begin{DoxyCompactList}\small\item\em quad element buffer object \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{framebuffer_8h_source_l00005}{5}} of file \mbox{\hyperlink{framebuffer_8h_source}{framebuffer.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_g_1_1_framebuffer_a60ea1f75fa492877d229b155c61032a0}\label{class_c_g_1_1_framebuffer_a60ea1f75fa492877d229b155c61032a0}} 
+\index{CG::Framebuffer@{CG::Framebuffer}!create@{create}}
+\index{create@{create}!CG::Framebuffer@{CG::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily void CG\+::\+Framebuffer\+::create (\begin{DoxyParamCaption}\item[{int}]{scrw,  }\item[{int}]{scrh }\end{DoxyParamCaption})}
+
+
+
+create a frame buffer texture with depth and stencil buffer enabled and also a quad to display the framebuffer on screen 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scrw} & screen width \\
+\hline
+{\em scrh} & screen height \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{framebuffer_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{framebuffer_8cpp_source}{framebuffer.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_framebuffer_a6a9665d736eb2e861599155ce66c8250}\label{class_c_g_1_1_framebuffer_a6a9665d736eb2e861599155ce66c8250}} 
+\index{CG::Framebuffer@{CG::Framebuffer}!drawfbo@{drawfbo}}
+\index{drawfbo@{drawfbo}!CG::Framebuffer@{CG::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{drawfbo()}{drawfbo()}}
+{\footnotesize\ttfamily void CG\+::\+Framebuffer\+::drawfbo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_g_1_1_program}{Program}} \&}]{program }\end{DoxyParamCaption})}
+
+
+
+draw the framebuffer texture on the window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em program} & the shader to use for drawing framebuffer texture \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{framebuffer_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{framebuffer_8cpp_source}{framebuffer.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_framebuffer_ae0ea98396556df470e77ff0f42061d10}\label{class_c_g_1_1_framebuffer_ae0ea98396556df470e77ff0f42061d10}} 
+\index{CG::Framebuffer@{CG::Framebuffer}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!CG::Framebuffer@{CG::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void CG\+::\+Framebuffer\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+clean up the framebuffer and the quad 
+
+
+
+Definition at line \mbox{\hyperlink{framebuffer_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{framebuffer_8cpp_source}{framebuffer.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_c_g_1_1_framebuffer_a9e65d388f3c7d4d76d5e393f3d47e606}\label{class_c_g_1_1_framebuffer_a9e65d388f3c7d4d76d5e393f3d47e606}} 
+\index{CG::Framebuffer@{CG::Framebuffer}!id@{id}}
+\index{id@{id}!CG::Framebuffer@{CG::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily GLuint CG\+::\+Framebuffer\+::id}
+
+
+
+id returned from gl\+Create 
+
+
+
+Definition at line \mbox{\hyperlink{framebuffer_8h_source_l00026}{26}} of file \mbox{\hyperlink{framebuffer_8h_source}{framebuffer.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_framebuffer_a5a0f14750941c7f8302a6df3afec9159}\label{class_c_g_1_1_framebuffer_a5a0f14750941c7f8302a6df3afec9159}} 
+\index{CG::Framebuffer@{CG::Framebuffer}!quadebo@{quadebo}}
+\index{quadebo@{quadebo}!CG::Framebuffer@{CG::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{quadebo}{quadebo}}
+{\footnotesize\ttfamily GLuint CG\+::\+Framebuffer\+::quadebo}
+
+
+
+quad element buffer object 
+
+
+
+Definition at line \mbox{\hyperlink{framebuffer_8h_source_l00047}{47}} of file \mbox{\hyperlink{framebuffer_8h_source}{framebuffer.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_framebuffer_a30c76e02ae04450c295d0ea37e791e44}\label{class_c_g_1_1_framebuffer_a30c76e02ae04450c295d0ea37e791e44}} 
+\index{CG::Framebuffer@{CG::Framebuffer}!quadvao@{quadvao}}
+\index{quadvao@{quadvao}!CG::Framebuffer@{CG::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{quadvao}{quadvao}}
+{\footnotesize\ttfamily GLuint CG\+::\+Framebuffer\+::quadvao}
+
+
+
+quad vertex array object 
+
+
+
+Definition at line \mbox{\hyperlink{framebuffer_8h_source_l00039}{39}} of file \mbox{\hyperlink{framebuffer_8h_source}{framebuffer.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_framebuffer_a2851648717228097c17ff15ee80b7fed}\label{class_c_g_1_1_framebuffer_a2851648717228097c17ff15ee80b7fed}} 
+\index{CG::Framebuffer@{CG::Framebuffer}!quadvbo@{quadvbo}}
+\index{quadvbo@{quadvbo}!CG::Framebuffer@{CG::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{quadvbo}{quadvbo}}
+{\footnotesize\ttfamily GLuint CG\+::\+Framebuffer\+::quadvbo}
+
+
+
+quad vertex buffer object 
+
+
+
+Definition at line \mbox{\hyperlink{framebuffer_8h_source_l00043}{43}} of file \mbox{\hyperlink{framebuffer_8h_source}{framebuffer.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_framebuffer_a383bb807406bba8f6b9e04161e40461d}\label{class_c_g_1_1_framebuffer_a383bb807406bba8f6b9e04161e40461d}} 
+\index{CG::Framebuffer@{CG::Framebuffer}!rbo@{rbo}}
+\index{rbo@{rbo}!CG::Framebuffer@{CG::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{rbo}{rbo}}
+{\footnotesize\ttfamily GLuint CG\+::\+Framebuffer\+::rbo}
+
+
+
+depth and stencil buffer stored in the render buffer object 
+
+
+
+Definition at line \mbox{\hyperlink{framebuffer_8h_source_l00034}{34}} of file \mbox{\hyperlink{framebuffer_8h_source}{framebuffer.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_framebuffer_a9389d56bbfdbb8cb828340d8899e2108}\label{class_c_g_1_1_framebuffer_a9389d56bbfdbb8cb828340d8899e2108}} 
+\index{CG::Framebuffer@{CG::Framebuffer}!texture@{texture}}
+\index{texture@{texture}!CG::Framebuffer@{CG::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{texture}{texture}}
+{\footnotesize\ttfamily GLuint CG\+::\+Framebuffer\+::texture}
+
+
+
+framebuffer texture 
+
+
+
+Definition at line \mbox{\hyperlink{framebuffer_8h_source_l00030}{30}} of file \mbox{\hyperlink{framebuffer_8h_source}{framebuffer.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{framebuffer_8h}{framebuffer.\+h}}\item 
+src/\mbox{\hyperlink{framebuffer_8cpp}{framebuffer.\+cpp}}\end{DoxyCompactItemize}

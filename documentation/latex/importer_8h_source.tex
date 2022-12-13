@@ -1,0 +1,31 @@
+\hypertarget{importer_8h_source}{}\doxysection{importer.\+h}
+\label{importer_8h_source}\index{src/importer.h@{src/importer.h}}
+\mbox{\hyperlink{importer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mesh_8h}{mesh.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <assimp/Importer.hpp>}}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <assimp/scene.h>}}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <assimp/postprocess.h>}}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00008}00008 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_c_g}{CG}} \{}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00009}\mbox{\hyperlink{class_c_g_1_1_importer}{00009}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_c_g_1_1_importer}{Importer}} \{}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00010}00010     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00015}00015         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_importer_a9a7448991612da0b267e89c5b61bccbb}{loadModel}}(std::string path);}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00016}00016         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_importer_a59fa7840a541740e07911c5d27f94e48}{draw}}(\mbox{\hyperlink{class_c_g_1_1_program}{Program}}\& program);}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00017}00017         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_importer_a10c49220c70dafac494ec1aefe1a0080}{shutdown}}();}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00019}00019     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00023}\mbox{\hyperlink{class_c_g_1_1_importer_a3a5fb23facb337587f5423c7ff3fec0a}{00023}}         std::vector<Mesh> \mbox{\hyperlink{class_c_g_1_1_importer_a3a5fb23facb337587f5423c7ff3fec0a}{meshes}};}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00027}\mbox{\hyperlink{class_c_g_1_1_importer_afdba09dbf0b53bd97a40a0accdfea010}{00027}}         std::string \mbox{\hyperlink{class_c_g_1_1_importer_afdba09dbf0b53bd97a40a0accdfea010}{directory}};}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00031}\mbox{\hyperlink{class_c_g_1_1_importer_ad8297a63dcf7b21e515b28e0010dcaa9}{00031}}         std::vector<Texture> \mbox{\hyperlink{class_c_g_1_1_importer_ad8297a63dcf7b21e515b28e0010dcaa9}{textures\_loaded}};}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00038}00038         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_importer_aa53dec73b927cf66b82fa50a738e147a}{processNode}}(aiNode* node, \textcolor{keyword}{const} aiScene* scene);}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00045}00045         \mbox{\hyperlink{class_c_g_1_1_mesh}{Mesh}} \mbox{\hyperlink{class_c_g_1_1_importer_a08983ce3ad835f27084bb80121fbe840}{processMesh}}(aiMesh* mesh, \textcolor{keyword}{const} aiScene* scene);}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00053}00053         std::vector<Texture> \mbox{\hyperlink{class_c_g_1_1_importer_a24fb733bc6d9ff268c6a4145f5856b11}{loadMaterialTextures}}(aiMaterial* mat, aiTextureType type, std::string typeName);}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00059}00059         glm::vec4 \mbox{\hyperlink{class_c_g_1_1_importer_ac1f42fecbed0f2b767a3eb16ca207d53}{loadColor}}(aiMaterial* mat);}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00060}00060     \};}
+\DoxyCodeLine{\Hypertarget{importer_8h_source_l00061}00061 \}  \textcolor{comment}{// namespace CG}}
+
+\end{DoxyCode}

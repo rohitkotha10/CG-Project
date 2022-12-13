@@ -51,13 +51,17 @@ void main() {
     specular = spec * specular;
 
     vec3 temp = fragInLight.xyz / fragInLight.w;
+    // get the positions in lightSpace coordinate system
 
+    // to get rid of shadow acne
     float bias = max(0.05 * (1.0 - dot(norm, lightDir)), 0.005);
+
     temp = temp * 0.5f + 0.5f;
 
     float shadow = 0.0f;
     vec2 texelSize = 1.0 / textureSize(depthMap, 0);
 
+    // the PCF Algorithm
     for (int i = -2; i < 2; i++) {
         for (int j = -2; j < 2; j++) {
             vec2 sel = temp.xy + vec2(i, j) * texelSize;
@@ -67,6 +71,7 @@ void main() {
     }
     shadow = shadow / 16.0f;
 
+    // for getting rid of shadow acne
     if (temp.z >= 1.0 - bias) shadow = 0.0f;
 
     vec3 result = (ambient + (1.0 - shadow) * (diffuse + specular));

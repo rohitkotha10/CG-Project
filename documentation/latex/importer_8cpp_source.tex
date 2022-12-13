@@ -1,0 +1,127 @@
+\hypertarget{importer_8cpp_source}{}\doxysection{importer.\+cpp}
+\label{importer_8cpp_source}\index{src/importer.cpp@{src/importer.cpp}}
+\mbox{\hyperlink{importer_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{importer_8h}{importer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00003}00003 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00005}00005 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_c_g}{CG}} \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00006}\mbox{\hyperlink{class_c_g_1_1_importer_a59fa7840a541740e07911c5d27f94e48}{00006}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_importer_a59fa7840a541740e07911c5d27f94e48}{Importer::draw}}(\mbox{\hyperlink{class_c_g_1_1_program}{Program}}\& program) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00007}00007         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_c_g_1_1_importer_a3a5fb23facb337587f5423c7ff3fec0a}{meshes}}.size(); i++) \mbox{\hyperlink{class_c_g_1_1_importer_a3a5fb23facb337587f5423c7ff3fec0a}{meshes}}[i].\mbox{\hyperlink{class_c_g_1_1_importer_a59fa7840a541740e07911c5d27f94e48}{draw}}(program);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00008}00008     \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00010}\mbox{\hyperlink{class_c_g_1_1_importer_a9a7448991612da0b267e89c5b61bccbb}{00010}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_importer_a9a7448991612da0b267e89c5b61bccbb}{Importer::loadModel}}(\textcolor{keywordtype}{string} path) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00011}00011         Assimp::Importer \textcolor{keyword}{import};}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00012}00012         \textcolor{keyword}{const} aiScene* scene = \textcolor{keyword}{import}.ReadFile(path, aiProcess\_Triangulate | aiProcess\_FlipUVs);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00014}00014         \textcolor{keywordflow}{if} (!scene || scene-\/>mFlags \& AI\_SCENE\_FLAGS\_INCOMPLETE || !scene-\/>mRootNode) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00015}00015             cout << \textcolor{stringliteral}{"{}ERROR::ASSIMP::"{}} << \textcolor{keyword}{import}.GetErrorString() << endl;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00016}00016             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00017}00017         \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00018}00018         \mbox{\hyperlink{class_c_g_1_1_importer_afdba09dbf0b53bd97a40a0accdfea010}{directory}} = path.substr(0, path.find\_last\_of(\textcolor{charliteral}{'/'}));}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00020}00020         \mbox{\hyperlink{class_c_g_1_1_importer_aa53dec73b927cf66b82fa50a738e147a}{processNode}}(scene-\/>mRootNode, scene);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00021}00021     \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00023}\mbox{\hyperlink{class_c_g_1_1_importer_aa53dec73b927cf66b82fa50a738e147a}{00023}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_importer_aa53dec73b927cf66b82fa50a738e147a}{Importer::processNode}}(aiNode* node, \textcolor{keyword}{const} aiScene* scene) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00024}00024         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < node-\/>mNumMeshes; i++) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00025}00025             aiMesh* mesh = scene-\/>mMeshes[node-\/>mMeshes[i]];}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00026}00026             \mbox{\hyperlink{class_c_g_1_1_importer_a3a5fb23facb337587f5423c7ff3fec0a}{meshes}}.push\_back(\mbox{\hyperlink{class_c_g_1_1_importer_a08983ce3ad835f27084bb80121fbe840}{processMesh}}(mesh, scene));}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00027}00027         \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00028}00028         \textcolor{comment}{// then do the same for each of its children}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00029}00029         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < node-\/>mNumChildren; i++) \{ \mbox{\hyperlink{class_c_g_1_1_importer_aa53dec73b927cf66b82fa50a738e147a}{processNode}}(node-\/>mChildren[i], scene); \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00030}00030     \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00032}\mbox{\hyperlink{class_c_g_1_1_importer_a08983ce3ad835f27084bb80121fbe840}{00032}}     \mbox{\hyperlink{class_c_g_1_1_mesh}{Mesh}} \mbox{\hyperlink{class_c_g_1_1_importer_a08983ce3ad835f27084bb80121fbe840}{Importer::processMesh}}(aiMesh* mesh, \textcolor{keyword}{const} aiScene* scene) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00033}00033         vector<Vertex> vertices;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00034}00034         vector<unsigned int> indices;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00035}00035         vector<Texture> textures;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00036}00036         glm::vec4 color;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00038}00038         \textcolor{keywordflow}{if} (mesh-\/>mMaterialIndex >= 0) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00039}00039             aiMaterial* material = scene-\/>mMaterials[mesh-\/>mMaterialIndex];}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00040}00040             vector<Texture> diffuseMaps = \mbox{\hyperlink{class_c_g_1_1_importer_a24fb733bc6d9ff268c6a4145f5856b11}{loadMaterialTextures}}(material, aiTextureType\_DIFFUSE, \textcolor{stringliteral}{"{}diffuse"{}});}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00041}00041             vector<Texture> specularMaps = \mbox{\hyperlink{class_c_g_1_1_importer_a24fb733bc6d9ff268c6a4145f5856b11}{loadMaterialTextures}}(material, aiTextureType\_SPECULAR, \textcolor{stringliteral}{"{}specular"{}});}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00042}00042             color = \mbox{\hyperlink{class_c_g_1_1_importer_ac1f42fecbed0f2b767a3eb16ca207d53}{loadColor}}(material);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00044}00044             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < diffuseMaps.size(); i++) textures.push\_back(diffuseMaps[i]);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00046}00046             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < specularMaps.size(); i++) textures.push\_back(specularMaps[i]);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00047}00047         \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00049}00049         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < mesh-\/>mNumVertices; i++) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00050}00050             \mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}} vertex;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00051}00051             \textcolor{comment}{// process vertex positions, normals and texture coordinates}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00052}00052             glm::vec3 vector;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00053}00053             vector.x = mesh-\/>mVertices[i].x;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00054}00054             vector.y = mesh-\/>mVertices[i].y;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00055}00055             vector.z = mesh-\/>mVertices[i].z;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00056}00056             vertex.\mbox{\hyperlink{struct_c_g_1_1_vertex_a714bf51a97de4d523e101cd640020d13}{position}} = vector;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00058}00058             vector.x = mesh-\/>mNormals[i].x;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00059}00059             vector.y = mesh-\/>mNormals[i].y;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00060}00060             vector.z = mesh-\/>mNormals[i].z;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00061}00061             vertex.\mbox{\hyperlink{struct_c_g_1_1_vertex_afc91911c3f93f0ce056feaef0714bccf}{normal}} = vector;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00063}00063             \textcolor{keywordflow}{if} (mesh-\/>mTextureCoords[0])  \textcolor{comment}{// does the mesh contain texture coordinates?}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00064}00064             \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00065}00065                 glm::vec2 vec;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00066}00066                 vec.x = mesh-\/>mTextureCoords[0][i].x;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00067}00067                 vec.y = mesh-\/>mTextureCoords[0][i].y;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00068}00068                 vertex.\mbox{\hyperlink{struct_c_g_1_1_vertex_a280d653ebda67555c8453d340a3f844c}{texPos}} = vec;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00069}00069             \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00070}00070                 vertex.\mbox{\hyperlink{struct_c_g_1_1_vertex_a280d653ebda67555c8453d340a3f844c}{texPos}} = glm::vec2(0.0f, 0.0f);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00072}00072             vertices.push\_back(vertex);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00073}00073         \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00075}00075         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < mesh-\/>mNumFaces; i++) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00076}00076             aiFace face = mesh-\/>mFaces[i];}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00077}00077             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} j = 0; j < face.mNumIndices; j++) indices.push\_back(face.mIndices[j]);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00078}00078         \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00080}00080         \mbox{\hyperlink{class_c_g_1_1_mesh}{Mesh}} temp;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00081}00081         temp.\mbox{\hyperlink{class_c_g_1_1_mesh_a3529dba3376d36e2ffbc9cd870e3e828}{createMesh}}(vertices, indices, textures, color);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00082}00082         \textcolor{keywordflow}{return} temp;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00083}00083     \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00085}\mbox{\hyperlink{class_c_g_1_1_importer_a10c49220c70dafac494ec1aefe1a0080}{00085}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_importer_a10c49220c70dafac494ec1aefe1a0080}{Importer::shutdown}}() \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00086}00086         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_c_g_1_1_importer_a3a5fb23facb337587f5423c7ff3fec0a}{meshes}}.size(); i++) \{ \mbox{\hyperlink{class_c_g_1_1_importer_a3a5fb23facb337587f5423c7ff3fec0a}{meshes}}[i].shutdown(); \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00087}00087     \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00089}\mbox{\hyperlink{class_c_g_1_1_importer_a24fb733bc6d9ff268c6a4145f5856b11}{00089}}     vector<Texture> \mbox{\hyperlink{class_c_g_1_1_importer_a24fb733bc6d9ff268c6a4145f5856b11}{Importer::loadMaterialTextures}}(aiMaterial* mat, aiTextureType type, \textcolor{keywordtype}{string} typeName) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00090}00090         vector<Texture> textures;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00091}00091         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < mat-\/>GetTextureCount(type); i++) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00092}00092             aiString str;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00093}00093             mat-\/>GetTexture(type, i, \&str);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00095}00095             \textcolor{keywordtype}{string} filename = string(str.C\_Str());}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00096}00096             filename = \mbox{\hyperlink{class_c_g_1_1_importer_afdba09dbf0b53bd97a40a0accdfea010}{directory}} + \textcolor{charliteral}{'/'} + filename;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00098}00098             \textcolor{keywordtype}{bool} skip = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00099}00099             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_c_g_1_1_importer_ad8297a63dcf7b21e515b28e0010dcaa9}{textures\_loaded}}.size(); j++) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00100}00100                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_c_g_1_1_importer_ad8297a63dcf7b21e515b28e0010dcaa9}{textures\_loaded}}[j].path == filename) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00101}00101                     textures.push\_back(\mbox{\hyperlink{class_c_g_1_1_importer_ad8297a63dcf7b21e515b28e0010dcaa9}{textures\_loaded}}[j]);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00102}00102                     skip = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00103}00103                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00104}00104                 \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00105}00105             \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00106}00106             \textcolor{keywordflow}{if} (!skip) \{  \textcolor{comment}{// if texture hasn't been loaded already, load it}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00107}00107                 \mbox{\hyperlink{struct_c_g_1_1_texture}{Texture}} texture;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00108}00108                 texture.\mbox{\hyperlink{struct_c_g_1_1_texture_a65e5a6e3e58f90e260ff7d59ea720c73}{loadTexture}}(filename, typeName);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00109}00109                 \mbox{\hyperlink{class_c_g_1_1_importer_ad8297a63dcf7b21e515b28e0010dcaa9}{textures\_loaded}}.push\_back(texture);  \textcolor{comment}{// add to loaded textures}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00110}00110                 textures.push\_back(texture);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00111}00111             \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00112}00112         \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00113}00113         \textcolor{keywordflow}{return} textures;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00114}00114     \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00116}\mbox{\hyperlink{class_c_g_1_1_importer_ac1f42fecbed0f2b767a3eb16ca207d53}{00116}}     glm::vec4 \mbox{\hyperlink{class_c_g_1_1_importer_ac1f42fecbed0f2b767a3eb16ca207d53}{Importer::loadColor}}(aiMaterial* mat) \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00117}00117         aiColor3D color(0.f, 0.f, 0.f);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00118}00118         mat-\/>Get(AI\_MATKEY\_COLOR\_DIFFUSE, color);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00119}00119         \textcolor{keywordflow}{return} glm::vec4(color.r, color.g, color.b, 1.0f);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00120}00120     \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00121}00121 \}  \textcolor{comment}{// namespace CG}}
+
+\end{DoxyCode}

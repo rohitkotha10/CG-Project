@@ -1,0 +1,257 @@
+\hypertarget{class_c_g_1_1_program}{}\doxysection{CG\+::Program Class Reference}
+\label{class_c_g_1_1_program}\index{CG::Program@{CG::Program}}
+
+
+{\ttfamily \#include $<$program.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_g_1_1_program_a6d30343fdcf546a75d9e5050dbb52244}{create}} (std\+::string vs\+Source, std\+::string fs\+Source)
+\begin{DoxyCompactList}\small\item\em compile the shaders, link them and create a program \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_program_a9a666b59746a1e4a18a7f6161f6e8761}{use}} ()
+\begin{DoxyCompactList}\small\item\em use the program and draw the shaders accordingly \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_program_a1363829b180d7c2f0da293ddca075a73}{shutdown}} ()
+\begin{DoxyCompactList}\small\item\em clean up the program \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_program_ae41b030266b2a988c00794e4099eb349}{set\+Int}} (std\+::string name, int value)
+\begin{DoxyCompactList}\small\item\em set int in uniform \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_program_ac11692728c10539c640aaefa8cc66eb2}{set\+Float}} (std\+::string name, float value)
+\begin{DoxyCompactList}\small\item\em set float in uniform \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_program_a55ac953af0ce9fd8e9048eb837e4cc50}{set\+Mat4}} (std\+::string name, const glm\+::mat4 \&data)
+\begin{DoxyCompactList}\small\item\em set 4x4 matrix in uniform \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_program_adb0ba2f97a7af385ea5cc77e14a4a69d}{set\+Vec4}} (std\+::string name, float x, float y, float z, float a)
+\begin{DoxyCompactList}\small\item\em set vec4 matrix using 4 floats \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_program_ac0a099b277bc506e145642e586056378}{set\+Vec4}} (std\+::string name, const glm\+::vec4 \&data)
+\begin{DoxyCompactList}\small\item\em set vec4 using glm\+::vec4 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_program_a65e47e744bd47f8b150843df80c65232}{set\+Vec3}} (std\+::string name, float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em set vec3 using 3 floats \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_program_a3a8bc51b8bdd494c1776598e93ce7461}{set\+Vec3}} (std\+::string name, const glm\+::vec3 \&data)
+\begin{DoxyCompactList}\small\item\em set vec3 using glm\+::vec3 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLuint \mbox{\hyperlink{class_c_g_1_1_program_a377adfc20b85e3fcf9703e1b4f9cec61}{id}}
+\begin{DoxyCompactList}\small\item\em id returned from gl\+Create \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{program_8h_source_l00022}{22}} of file \mbox{\hyperlink{program_8h_source}{program.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_g_1_1_program_a6d30343fdcf546a75d9e5050dbb52244}\label{class_c_g_1_1_program_a6d30343fdcf546a75d9e5050dbb52244}} 
+\index{CG::Program@{CG::Program}!create@{create}}
+\index{create@{create}!CG::Program@{CG::Program}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily void CG\+::\+Program\+::create (\begin{DoxyParamCaption}\item[{std\+::string}]{vs\+Source,  }\item[{std\+::string}]{fs\+Source }\end{DoxyParamCaption})}
+
+
+
+compile the shaders, link them and create a program 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vs\+Source} & source directory of vertex shader \\
+\hline
+{\em fs\+Source} & source directory of fragment shader \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{program_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{program_8cpp_source}{program.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_program_ac11692728c10539c640aaefa8cc66eb2}\label{class_c_g_1_1_program_ac11692728c10539c640aaefa8cc66eb2}} 
+\index{CG::Program@{CG::Program}!setFloat@{setFloat}}
+\index{setFloat@{setFloat}!CG::Program@{CG::Program}}
+\doxysubsubsection{\texorpdfstring{setFloat()}{setFloat()}}
+{\footnotesize\ttfamily void CG\+::\+Program\+::set\+Float (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+set float in uniform 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & uniform name \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{program_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{program_8cpp_source}{program.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_program_ae41b030266b2a988c00794e4099eb349}\label{class_c_g_1_1_program_ae41b030266b2a988c00794e4099eb349}} 
+\index{CG::Program@{CG::Program}!setInt@{setInt}}
+\index{setInt@{setInt}!CG::Program@{CG::Program}}
+\doxysubsubsection{\texorpdfstring{setInt()}{setInt()}}
+{\footnotesize\ttfamily void CG\+::\+Program\+::set\+Int (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+set int in uniform 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & uniform name \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{program_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{program_8cpp_source}{program.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_program_a55ac953af0ce9fd8e9048eb837e4cc50}\label{class_c_g_1_1_program_a55ac953af0ce9fd8e9048eb837e4cc50}} 
+\index{CG::Program@{CG::Program}!setMat4@{setMat4}}
+\index{setMat4@{setMat4}!CG::Program@{CG::Program}}
+\doxysubsubsection{\texorpdfstring{setMat4()}{setMat4()}}
+{\footnotesize\ttfamily void CG\+::\+Program\+::set\+Mat4 (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{const glm\+::mat4 \&}]{data }\end{DoxyParamCaption})}
+
+
+
+set 4x4 matrix in uniform 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & uniform name \\
+\hline
+{\em data} & pass data as glm\+::mat4 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{program_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{program_8cpp_source}{program.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_program_a3a8bc51b8bdd494c1776598e93ce7461}\label{class_c_g_1_1_program_a3a8bc51b8bdd494c1776598e93ce7461}} 
+\index{CG::Program@{CG::Program}!setVec3@{setVec3}}
+\index{setVec3@{setVec3}!CG::Program@{CG::Program}}
+\doxysubsubsection{\texorpdfstring{setVec3()}{setVec3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void CG\+::\+Program\+::set\+Vec3 (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{const glm\+::vec3 \&}]{data }\end{DoxyParamCaption})}
+
+
+
+set vec3 using glm\+::vec3 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & uniform name \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_c_g_1_1_program_a65e47e744bd47f8b150843df80c65232}\label{class_c_g_1_1_program_a65e47e744bd47f8b150843df80c65232}} 
+\index{CG::Program@{CG::Program}!setVec3@{setVec3}}
+\index{setVec3@{setVec3}!CG::Program@{CG::Program}}
+\doxysubsubsection{\texorpdfstring{setVec3()}{setVec3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void CG\+::\+Program\+::set\+Vec3 (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})}
+
+
+
+set vec3 using 3 floats 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & uniform name \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em z} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_c_g_1_1_program_ac0a099b277bc506e145642e586056378}\label{class_c_g_1_1_program_ac0a099b277bc506e145642e586056378}} 
+\index{CG::Program@{CG::Program}!setVec4@{setVec4}}
+\index{setVec4@{setVec4}!CG::Program@{CG::Program}}
+\doxysubsubsection{\texorpdfstring{setVec4()}{setVec4()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void CG\+::\+Program\+::set\+Vec4 (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{const glm\+::vec4 \&}]{data }\end{DoxyParamCaption})}
+
+
+
+set vec4 using glm\+::vec4 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & uniform name \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_c_g_1_1_program_adb0ba2f97a7af385ea5cc77e14a4a69d}\label{class_c_g_1_1_program_adb0ba2f97a7af385ea5cc77e14a4a69d}} 
+\index{CG::Program@{CG::Program}!setVec4@{setVec4}}
+\index{setVec4@{setVec4}!CG::Program@{CG::Program}}
+\doxysubsubsection{\texorpdfstring{setVec4()}{setVec4()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void CG\+::\+Program\+::set\+Vec4 (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z,  }\item[{float}]{a }\end{DoxyParamCaption})}
+
+
+
+set vec4 matrix using 4 floats 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & uniform name \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em z} & \\
+\hline
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_c_g_1_1_program_a1363829b180d7c2f0da293ddca075a73}\label{class_c_g_1_1_program_a1363829b180d7c2f0da293ddca075a73}} 
+\index{CG::Program@{CG::Program}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!CG::Program@{CG::Program}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void CG\+::\+Program\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+clean up the program 
+
+
+
+Definition at line \mbox{\hyperlink{program_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{program_8cpp_source}{program.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_program_a9a666b59746a1e4a18a7f6161f6e8761}\label{class_c_g_1_1_program_a9a666b59746a1e4a18a7f6161f6e8761}} 
+\index{CG::Program@{CG::Program}!use@{use}}
+\index{use@{use}!CG::Program@{CG::Program}}
+\doxysubsubsection{\texorpdfstring{use()}{use()}}
+{\footnotesize\ttfamily void CG\+::\+Program\+::use (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+use the program and draw the shaders accordingly 
+
+
+
+Definition at line \mbox{\hyperlink{program_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{program_8cpp_source}{program.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_c_g_1_1_program_a377adfc20b85e3fcf9703e1b4f9cec61}\label{class_c_g_1_1_program_a377adfc20b85e3fcf9703e1b4f9cec61}} 
+\index{CG::Program@{CG::Program}!id@{id}}
+\index{id@{id}!CG::Program@{CG::Program}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily GLuint CG\+::\+Program\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+id returned from gl\+Create 
+
+
+
+Definition at line \mbox{\hyperlink{program_8h_source_l00090}{90}} of file \mbox{\hyperlink{program_8h_source}{program.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{program_8h}{program.\+h}}\item 
+src/\mbox{\hyperlink{program_8cpp}{program.\+cpp}}\end{DoxyCompactItemize}

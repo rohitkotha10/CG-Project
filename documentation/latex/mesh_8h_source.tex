@@ -1,0 +1,29 @@
+\hypertarget{mesh_8h_source}{}\doxysection{mesh.\+h}
+\label{mesh_8h_source}\index{src/mesh.h@{src/mesh.h}}
+\mbox{\hyperlink{mesh_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{primitives_8h}{primitives.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00004}00004 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_c_g}{CG}} \{}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00005}\mbox{\hyperlink{class_c_g_1_1_mesh}{00005}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_c_g_1_1_mesh}{Mesh}} \{}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00006}00006     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00007}\mbox{\hyperlink{class_c_g_1_1_mesh_ab54a8c841028d1b8c840e79e6afa0730}{00007}}         std::vector<Vertex> \mbox{\hyperlink{class_c_g_1_1_mesh_ab54a8c841028d1b8c840e79e6afa0730}{vertices}};}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00011}\mbox{\hyperlink{class_c_g_1_1_mesh_aa679d8fb691712cbbfe205253c8752d0}{00011}}         std::vector<GLuint> \mbox{\hyperlink{class_c_g_1_1_mesh_aa679d8fb691712cbbfe205253c8752d0}{indices}};}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00015}\mbox{\hyperlink{class_c_g_1_1_mesh_a2a2e83767bfe7e902ff0ca0be53910fe}{00015}}         std::vector<Texture> \mbox{\hyperlink{class_c_g_1_1_mesh_a2a2e83767bfe7e902ff0ca0be53910fe}{textures}};}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00016}\mbox{\hyperlink{class_c_g_1_1_mesh_a277b31dfa7d91444cb718cf1d5f1f39a}{00016}}         glm::vec4 \mbox{\hyperlink{class_c_g_1_1_mesh_a277b31dfa7d91444cb718cf1d5f1f39a}{color}};}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00024}00024         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_mesh_a3529dba3376d36e2ffbc9cd870e3e828}{createMesh}}(}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00025}00025             std::vector<Vertex> \mbox{\hyperlink{class_c_g_1_1_mesh_ab54a8c841028d1b8c840e79e6afa0730}{vertices}}, std::vector<GLuint> \mbox{\hyperlink{class_c_g_1_1_mesh_aa679d8fb691712cbbfe205253c8752d0}{indices}}, std::vector<Texture> \mbox{\hyperlink{class_c_g_1_1_mesh_a2a2e83767bfe7e902ff0ca0be53910fe}{textures}}, glm::vec4 \mbox{\hyperlink{class_c_g_1_1_mesh_a277b31dfa7d91444cb718cf1d5f1f39a}{color}});}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00033}00033         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_mesh_af753ef7a93778f17c97f7616f61e931d}{createPlaneTexture}}(glm::vec3 center, \textcolor{keywordtype}{float} side, \mbox{\hyperlink{struct_c_g_1_1_texture}{Texture}} texture, \textcolor{keywordtype}{float} texScale);}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00040}00040         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_mesh_a90350f1c47dfe47fd28e244c7509fce3}{createPlaneColor}}(glm::vec3 center, \textcolor{keywordtype}{float} side, glm::vec4 \mbox{\hyperlink{class_c_g_1_1_mesh_a277b31dfa7d91444cb718cf1d5f1f39a}{color}});}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00045}00045         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_mesh_a497801e3397453b0a77e3a9e6d5e89cb}{draw}}(\mbox{\hyperlink{class_c_g_1_1_program}{Program}}\& program);}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00049}00049         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_mesh_a420099219a84367faa00f2f750637c1e}{shutdown}}();}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00051}00051     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00055}\mbox{\hyperlink{class_c_g_1_1_mesh_a42c34417b2930b0772a402f57ca4a106}{00055}}         GLuint \mbox{\hyperlink{class_c_g_1_1_mesh_a42c34417b2930b0772a402f57ca4a106}{vao}};}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00059}\mbox{\hyperlink{class_c_g_1_1_mesh_ab07c250c22e0e55f954195c42c365cc7}{00059}}         GLuint \mbox{\hyperlink{class_c_g_1_1_mesh_ab07c250c22e0e55f954195c42c365cc7}{vbo}};}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00063}\mbox{\hyperlink{class_c_g_1_1_mesh_ad7d1bd9ed68ef7d0b2f376b44fb68044}{00063}}         GLuint \mbox{\hyperlink{class_c_g_1_1_mesh_ad7d1bd9ed68ef7d0b2f376b44fb68044}{ebo}};}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00064}00064     \};}
+\DoxyCodeLine{\Hypertarget{mesh_8h_source_l00065}00065 \}  \textcolor{comment}{// namespace CG}}
+
+\end{DoxyCode}

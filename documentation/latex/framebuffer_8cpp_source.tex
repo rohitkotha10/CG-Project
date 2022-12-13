@@ -1,0 +1,86 @@
+\hypertarget{framebuffer_8cpp_source}{}\doxysection{framebuffer.\+cpp}
+\label{framebuffer_8cpp_source}\index{src/framebuffer.cpp@{src/framebuffer.cpp}}
+\mbox{\hyperlink{framebuffer_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{framebuffer_8h}{framebuffer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00003}00003 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00005}\mbox{\hyperlink{namespace_c_g}{00005}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_c_g}{CG}} \{}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00006}\mbox{\hyperlink{class_c_g_1_1_framebuffer_a60ea1f75fa492877d229b155c61032a0}{00006}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_framebuffer_a60ea1f75fa492877d229b155c61032a0}{Framebuffer::create}}(\textcolor{keywordtype}{int} scrw, \textcolor{keywordtype}{int} scrh) \{}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00007}00007         glGenFramebuffers(1, \&this-\/>\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00008}00008         glBindFramebuffer(GL\_FRAMEBUFFER, this-\/>\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00010}00010         glGenRenderbuffers(1, \&this-\/>\mbox{\hyperlink{class_c_g_1_1_framebuffer_a383bb807406bba8f6b9e04161e40461d}{rbo}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00011}00011         glBindRenderbuffer(GL\_RENDERBUFFER, this-\/>\mbox{\hyperlink{class_c_g_1_1_framebuffer_a383bb807406bba8f6b9e04161e40461d}{rbo}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00012}00012         glRenderbufferStorage(GL\_RENDERBUFFER, GL\_DEPTH24\_STENCIL8, scrw, scrh);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00014}00014         glFramebufferRenderbuffer(GL\_FRAMEBUFFER, GL\_DEPTH\_STENCIL\_ATTACHMENT, GL\_RENDERBUFFER, this-\/>\mbox{\hyperlink{class_c_g_1_1_framebuffer_a383bb807406bba8f6b9e04161e40461d}{rbo}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00016}00016         glGenTextures(1, \&this-\/>\mbox{\hyperlink{class_c_g_1_1_framebuffer_a9389d56bbfdbb8cb828340d8899e2108}{texture}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00017}00017         glBindTexture(GL\_TEXTURE\_2D, this-\/>\mbox{\hyperlink{class_c_g_1_1_framebuffer_a9389d56bbfdbb8cb828340d8899e2108}{texture}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00018}00018         glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGB, scrw, scrh, 0, GL\_RGB, GL\_UNSIGNED\_BYTE, NULL);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00020}00020         glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00021}00021         glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00023}00023         glFramebufferTexture2D(GL\_FRAMEBUFFER, GL\_COLOR\_ATTACHMENT0, GL\_TEXTURE\_2D, this-\/>\mbox{\hyperlink{class_c_g_1_1_framebuffer_a9389d56bbfdbb8cb828340d8899e2108}{texture}}, 0);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00025}00025         \textcolor{keywordflow}{if} (glCheckFramebufferStatus(GL\_FRAMEBUFFER) != GL\_FRAMEBUFFER\_COMPLETE)}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00026}00026             cout << \textcolor{stringliteral}{"{}Error: Incomplete framebuffer"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00027}00027         glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00029}00029         \mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}} a0;}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00030}00030         a0.\mbox{\hyperlink{struct_c_g_1_1_vertex_a714bf51a97de4d523e101cd640020d13}{position}} = glm::vec3(-\/1.0f, -\/1.0f, 0.0f);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00031}00031         a0.\mbox{\hyperlink{struct_c_g_1_1_vertex_a280d653ebda67555c8453d340a3f844c}{texPos}} = glm::vec2(0.0f, 0.0f);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00033}00033         \mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}} a1;}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00034}00034         a1.\mbox{\hyperlink{struct_c_g_1_1_vertex_a714bf51a97de4d523e101cd640020d13}{position}} = glm::vec3(-\/1.0f, 1.0f, 0.0f);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00035}00035         a1.\mbox{\hyperlink{struct_c_g_1_1_vertex_a280d653ebda67555c8453d340a3f844c}{texPos}} = glm::vec2(0.0f, 1.0f);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00037}00037         \mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}} a2;}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00038}00038         a2.\mbox{\hyperlink{struct_c_g_1_1_vertex_a714bf51a97de4d523e101cd640020d13}{position}} = glm::vec3(1.0f, 1.0f, 0.0f);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00039}00039         a2.\mbox{\hyperlink{struct_c_g_1_1_vertex_a280d653ebda67555c8453d340a3f844c}{texPos}} = glm::vec2(1.0f, 1.0f);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00041}00041         \mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}} a3;}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00042}00042         a3.\mbox{\hyperlink{struct_c_g_1_1_vertex_a714bf51a97de4d523e101cd640020d13}{position}} = glm::vec3(1.0f, -\/1.0f, 0.0f);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00043}00043         a3.\mbox{\hyperlink{struct_c_g_1_1_vertex_a280d653ebda67555c8453d340a3f844c}{texPos}} = glm::vec2(1.0f, 0.0f);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00045}00045         vector<Vertex> vertices = \{a0, a1, a2, a3\};}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00046}00046         vector<int> indices = \{0, 1, 2, 2, 3, 0\};}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00048}00048         glGenVertexArrays(1, \&\mbox{\hyperlink{class_c_g_1_1_framebuffer_a30c76e02ae04450c295d0ea37e791e44}{quadvao}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00049}00049         glGenBuffers(1, \&\mbox{\hyperlink{class_c_g_1_1_framebuffer_a2851648717228097c17ff15ee80b7fed}{quadvbo}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00050}00050         glGenBuffers(1, \&\mbox{\hyperlink{class_c_g_1_1_framebuffer_a5a0f14750941c7f8302a6df3afec9159}{quadebo}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00052}00052         glBindVertexArray(\mbox{\hyperlink{class_c_g_1_1_framebuffer_a30c76e02ae04450c295d0ea37e791e44}{quadvao}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00054}00054         glBindBuffer(GL\_ARRAY\_BUFFER, \mbox{\hyperlink{class_c_g_1_1_framebuffer_a2851648717228097c17ff15ee80b7fed}{quadvbo}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00055}00055         glBufferData(GL\_ARRAY\_BUFFER, vertices.size() * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}}), \&vertices[0], GL\_STATIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00057}00057         glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \mbox{\hyperlink{class_c_g_1_1_framebuffer_a5a0f14750941c7f8302a6df3afec9159}{quadebo}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00058}00058         glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, indices.size() * \textcolor{keyword}{sizeof}(GLuint), \&indices[0], GL\_STATIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00060}00060         glVertexAttribPointer(0, 3, GL\_FLOAT, GL\_FALSE, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}}), (\textcolor{keywordtype}{void}*)0);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00061}00061         glEnableVertexAttribArray(0);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00063}00063         glVertexAttribPointer(1, 3, GL\_FLOAT, GL\_FALSE, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}}), (\textcolor{keywordtype}{void}*)offsetof(\mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}}, texPos));}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00064}00064         glEnableVertexAttribArray(1);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00065}00065     \}}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00067}\mbox{\hyperlink{class_c_g_1_1_framebuffer_a6a9665d736eb2e861599155ce66c8250}{00067}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_framebuffer_a6a9665d736eb2e861599155ce66c8250}{Framebuffer::drawfbo}}(\mbox{\hyperlink{class_c_g_1_1_program}{Program}}\& program) \{}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00068}00068         program.\mbox{\hyperlink{class_c_g_1_1_program_a9a666b59746a1e4a18a7f6161f6e8761}{use}}();}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00069}00069         glBindVertexArray(this-\/>\mbox{\hyperlink{class_c_g_1_1_framebuffer_a30c76e02ae04450c295d0ea37e791e44}{quadvao}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00070}00070         glBindTexture(GL\_TEXTURE\_2D, this-\/>\mbox{\hyperlink{class_c_g_1_1_framebuffer_a9389d56bbfdbb8cb828340d8899e2108}{texture}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00071}00071         glDrawElements(GL\_TRIANGLES, 6, GL\_UNSIGNED\_INT, 0);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00072}00072         glBindVertexArray(0);}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00073}00073     \}}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00075}\mbox{\hyperlink{class_c_g_1_1_framebuffer_ae0ea98396556df470e77ff0f42061d10}{00075}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_g_1_1_framebuffer_ae0ea98396556df470e77ff0f42061d10}{Framebuffer::shutdown}}() \{}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00076}00076         glDeleteFramebuffers(1, \&this-\/>\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00077}00077         glDeleteRenderbuffers(1, \&this-\/>\mbox{\hyperlink{class_c_g_1_1_framebuffer_a383bb807406bba8f6b9e04161e40461d}{rbo}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00078}00078         glDeleteTextures(1, \&this-\/>\mbox{\hyperlink{class_c_g_1_1_framebuffer_a9389d56bbfdbb8cb828340d8899e2108}{texture}});}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00079}00079     \}}
+\DoxyCodeLine{\Hypertarget{framebuffer_8cpp_source_l00080}00080 \}  \textcolor{comment}{// namespace CG}}
+
+\end{DoxyCode}

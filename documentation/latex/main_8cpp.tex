@@ -1,0 +1,435 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include \char`\"{}importer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}framebuffer.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a5515d805e76ce6728de3c0dc5e187c86}{mouse\+\_\+button\+\_\+callback}} (GLFWwindow $\ast$window, int button, int action, int mods)
+\begin{DoxyCompactList}\small\item\em updated the values whenever they are pressed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a5180f7bf2b71421af837035824a8c8ac}{framebuffer\+\_\+size\+\_\+callback}} (GLFWwindow $\ast$window, int width, int height)
+\begin{DoxyCompactList}\small\item\em change viewport when window resizes \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ac52009ca34f13f07eac8104b5d3dfa40}{keyboard\+\_\+callback}} (GLFWwindow $\ast$window, int key, int scancode, int action, int mods)
+\begin{DoxyCompactList}\small\item\em closes the window when escape is pressed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_adb38ccad09d0a7cdac91468c335213d5}{cursor\+\_\+callback}} (GLFWwindow $\ast$window, double xdpos, double ydpos)
+\begin{DoxyCompactList}\small\item\em simulate the yaw and pitches here \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a06ad2502008f16fbcf01dfaa7f7bc9ea}{scroll\+\_\+callback}} (GLFWwindow $\ast$window, double xoffset, double yoffset)
+\begin{DoxyCompactList}\small\item\em simulate the zoom function here by changing fov \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{main_8cpp_ac21731ba101e28334c34543121caa841}{first\+Mouse}} = true
+\item 
+int \mbox{\hyperlink{main_8cpp_adbe3ee8539b25ee048189f76945738a4}{press}} = 0
+\item 
+int \mbox{\hyperlink{main_8cpp_aa4d434a8b93410ea0ed660e48dac41c6}{screen\+\_\+width}} = 1920
+\item 
+int \mbox{\hyperlink{main_8cpp_a3b4a1bd850991355b91c7bfc15247d49}{screen\+\_\+height}} = 1080
+\item 
+bool \mbox{\hyperlink{main_8cpp_a0f82303de0f050cbc8ffe60f3769f1c9}{is\+Full\+Screen}} = false
+\item 
+float \mbox{\hyperlink{main_8cpp_aaa07b9226372fe795cd4c73aa1f2071a}{screen\+\_\+aspect}} = (float)\mbox{\hyperlink{main_8cpp_aa4d434a8b93410ea0ed660e48dac41c6}{screen\+\_\+width}} / (float)\mbox{\hyperlink{main_8cpp_a3b4a1bd850991355b91c7bfc15247d49}{screen\+\_\+height}}
+\item 
+float \mbox{\hyperlink{main_8cpp_abfd94a01fc71278021802ca0d1e25e16}{fov}} = 45.\+0f
+\begin{DoxyCompactList}\small\item\em for zooming in and out \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{main_8cpp_a4664c5d930c290e6f82141a070cbea46}{lastX}} = \mbox{\hyperlink{main_8cpp_aa4d434a8b93410ea0ed660e48dac41c6}{screen\+\_\+width}} / 2.\+0f
+\begin{DoxyCompactList}\small\item\em set cursor x position in center \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{main_8cpp_a9d5b8dfd025caf1c0ed043132515f587}{lastY}} = \mbox{\hyperlink{main_8cpp_a3b4a1bd850991355b91c7bfc15247d49}{screen\+\_\+height}} / 2.\+0f
+\begin{DoxyCompactList}\small\item\em set cursor y position in center \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{main_8cpp_a282e7d4378d4a18a805b8980295ac86c}{pitch}} = 0
+\begin{DoxyCompactList}\small\item\em initial pitch of camera \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{main_8cpp_a7efc219781df4a1e281cb5d348b7fbf9}{yaw}} = -\/90
+\begin{DoxyCompactList}\small\item\em initial yaw of camera \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{main_8cpp_a1a61318ed6aa02b4ff346e7eb8f68891}{delta\+Time}}
+\begin{DoxyCompactList}\small\item\em time between frames \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{main_8cpp_a518a497d888d805d5f368bbb91b54a6c}{last\+Frame}}
+\begin{DoxyCompactList}\small\item\em store last frame time for computing delta time \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{main_8cpp_a2efc1e4b509cc5f0c2bffdfc7deb98b3}{world\+Up}} = glm\+::vec3(0.\+0f, 1.\+0f, 0.\+0f)
+\item 
+glm\+::vec3 \mbox{\hyperlink{main_8cpp_afcee0af49198577e804d3741b319382e}{camera\+Pos}} = glm\+::vec3(0.\+0f, 0.\+0f, 3.\+0f)
+\begin{DoxyCompactList}\small\item\em camera position in world \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{main_8cpp_ad2fdbd6090bd7089d3958bc6f459d05a}{camera\+Target}} = glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f)
+\begin{DoxyCompactList}\small\item\em must change yaw and pitch accordingly when setting the camera target \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{main_8cpp_a8cfa8e18baf093b4aa4f589daf057024}{camera\+Front}} = glm\+::normalize(\mbox{\hyperlink{main_8cpp_ad2fdbd6090bd7089d3958bc6f459d05a}{camera\+Target}} -\/ \mbox{\hyperlink{main_8cpp_afcee0af49198577e804d3741b319382e}{camera\+Pos}})
+\begin{DoxyCompactList}\small\item\em the front direction of camera the camera is in left hand coordinate sytem this is because increasing z value should move you closer to the world \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{main_8cpp_a0b1e93bd80f5dab9ddf2262e7c2206a5}{camera\+Right}} = glm\+::normalize(glm\+::cross(\mbox{\hyperlink{main_8cpp_a8cfa8e18baf093b4aa4f589daf057024}{camera\+Front}}, \mbox{\hyperlink{main_8cpp_a2efc1e4b509cc5f0c2bffdfc7deb98b3}{world\+Up}}))
+\begin{DoxyCompactList}\small\item\em right direction of camera \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{main_8cpp_a36d5c153de5e9cf5a0efb0e7d9986683}{camera\+Up}} = glm\+::normalize(glm\+::cross(\mbox{\hyperlink{main_8cpp_a8cfa8e18baf093b4aa4f589daf057024}{camera\+Front}}, \mbox{\hyperlink{main_8cpp_a0b1e93bd80f5dab9ddf2262e7c2206a5}{camera\+Right}}))
+\begin{DoxyCompactList}\small\item\em up direction of camera \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_adb38ccad09d0a7cdac91468c335213d5}\label{main_8cpp_adb38ccad09d0a7cdac91468c335213d5}} 
+\index{main.cpp@{main.cpp}!cursor\_callback@{cursor\_callback}}
+\index{cursor\_callback@{cursor\_callback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cursor\_callback()}{cursor\_callback()}}
+{\footnotesize\ttfamily void cursor\+\_\+callback (\begin{DoxyParamCaption}\item[{GLFWwindow $\ast$}]{window,  }\item[{double}]{xdpos,  }\item[{double}]{ydpos }\end{DoxyParamCaption})}
+
+
+
+simulate the yaw and pitches here 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+{\em xdpos} & \\
+\hline
+{\em ydpos} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a5180f7bf2b71421af837035824a8c8ac}\label{main_8cpp_a5180f7bf2b71421af837035824a8c8ac}} 
+\index{main.cpp@{main.cpp}!framebuffer\_size\_callback@{framebuffer\_size\_callback}}
+\index{framebuffer\_size\_callback@{framebuffer\_size\_callback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{framebuffer\_size\_callback()}{framebuffer\_size\_callback()}}
+{\footnotesize\ttfamily void framebuffer\+\_\+size\+\_\+callback (\begin{DoxyParamCaption}\item[{GLFWwindow $\ast$}]{window,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+change viewport when window resizes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_ac52009ca34f13f07eac8104b5d3dfa40}\label{main_8cpp_ac52009ca34f13f07eac8104b5d3dfa40}} 
+\index{main.cpp@{main.cpp}!keyboard\_callback@{keyboard\_callback}}
+\index{keyboard\_callback@{keyboard\_callback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{keyboard\_callback()}{keyboard\_callback()}}
+{\footnotesize\ttfamily void keyboard\+\_\+callback (\begin{DoxyParamCaption}\item[{GLFWwindow $\ast$}]{window,  }\item[{int}]{key,  }\item[{int}]{scancode,  }\item[{int}]{action,  }\item[{int}]{mods }\end{DoxyParamCaption})}
+
+
+
+closes the window when escape is pressed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+{\em key} & \\
+\hline
+{\em scancode} & \\
+\hline
+{\em action} & \\
+\hline
+{\em mods} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a5515d805e76ce6728de3c0dc5e187c86}\label{main_8cpp_a5515d805e76ce6728de3c0dc5e187c86}} 
+\index{main.cpp@{main.cpp}!mouse\_button\_callback@{mouse\_button\_callback}}
+\index{mouse\_button\_callback@{mouse\_button\_callback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{mouse\_button\_callback()}{mouse\_button\_callback()}}
+{\footnotesize\ttfamily void mouse\+\_\+button\+\_\+callback (\begin{DoxyParamCaption}\item[{GLFWwindow $\ast$}]{window,  }\item[{int}]{button,  }\item[{int}]{action,  }\item[{int}]{mods }\end{DoxyParamCaption})}
+
+
+
+updated the values whenever they are pressed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+{\em button} & \\
+\hline
+{\em action} & \\
+\hline
+{\em mods} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a06ad2502008f16fbcf01dfaa7f7bc9ea}\label{main_8cpp_a06ad2502008f16fbcf01dfaa7f7bc9ea}} 
+\index{main.cpp@{main.cpp}!scroll\_callback@{scroll\_callback}}
+\index{scroll\_callback@{scroll\_callback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{scroll\_callback()}{scroll\_callback()}}
+{\footnotesize\ttfamily void scroll\+\_\+callback (\begin{DoxyParamCaption}\item[{GLFWwindow $\ast$}]{window,  }\item[{double}]{xoffset,  }\item[{double}]{yoffset }\end{DoxyParamCaption})}
+
+
+
+simulate the zoom function here by changing fov 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+{\em xoffset} & \\
+\hline
+{\em yoffset} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00153}{153}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_a8cfa8e18baf093b4aa4f589daf057024}\label{main_8cpp_a8cfa8e18baf093b4aa4f589daf057024}} 
+\index{main.cpp@{main.cpp}!cameraFront@{cameraFront}}
+\index{cameraFront@{cameraFront}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cameraFront}{cameraFront}}
+{\footnotesize\ttfamily glm\+::vec3 camera\+Front = glm\+::normalize(\mbox{\hyperlink{main_8cpp_ad2fdbd6090bd7089d3958bc6f459d05a}{camera\+Target}} -\/ \mbox{\hyperlink{main_8cpp_afcee0af49198577e804d3741b319382e}{camera\+Pos}})}
+
+
+
+the front direction of camera the camera is in left hand coordinate sytem this is because increasing z value should move you closer to the world 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_afcee0af49198577e804d3741b319382e}\label{main_8cpp_afcee0af49198577e804d3741b319382e}} 
+\index{main.cpp@{main.cpp}!cameraPos@{cameraPos}}
+\index{cameraPos@{cameraPos}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cameraPos}{cameraPos}}
+{\footnotesize\ttfamily glm\+::vec3 camera\+Pos = glm\+::vec3(0.\+0f, 0.\+0f, 3.\+0f)}
+
+
+
+camera position in world 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a0b1e93bd80f5dab9ddf2262e7c2206a5}\label{main_8cpp_a0b1e93bd80f5dab9ddf2262e7c2206a5}} 
+\index{main.cpp@{main.cpp}!cameraRight@{cameraRight}}
+\index{cameraRight@{cameraRight}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cameraRight}{cameraRight}}
+{\footnotesize\ttfamily glm\+::vec3 camera\+Right = glm\+::normalize(glm\+::cross(\mbox{\hyperlink{main_8cpp_a8cfa8e18baf093b4aa4f589daf057024}{camera\+Front}}, \mbox{\hyperlink{main_8cpp_a2efc1e4b509cc5f0c2bffdfc7deb98b3}{world\+Up}}))}
+
+
+
+right direction of camera 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_ad2fdbd6090bd7089d3958bc6f459d05a}\label{main_8cpp_ad2fdbd6090bd7089d3958bc6f459d05a}} 
+\index{main.cpp@{main.cpp}!cameraTarget@{cameraTarget}}
+\index{cameraTarget@{cameraTarget}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cameraTarget}{cameraTarget}}
+{\footnotesize\ttfamily glm\+::vec3 camera\+Target = glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f)}
+
+
+
+must change yaw and pitch accordingly when setting the camera target 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a36d5c153de5e9cf5a0efb0e7d9986683}\label{main_8cpp_a36d5c153de5e9cf5a0efb0e7d9986683}} 
+\index{main.cpp@{main.cpp}!cameraUp@{cameraUp}}
+\index{cameraUp@{cameraUp}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cameraUp}{cameraUp}}
+{\footnotesize\ttfamily glm\+::vec3 camera\+Up = glm\+::normalize(glm\+::cross(\mbox{\hyperlink{main_8cpp_a8cfa8e18baf093b4aa4f589daf057024}{camera\+Front}}, \mbox{\hyperlink{main_8cpp_a0b1e93bd80f5dab9ddf2262e7c2206a5}{camera\+Right}}))}
+
+
+
+up direction of camera 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a1a61318ed6aa02b4ff346e7eb8f68891}\label{main_8cpp_a1a61318ed6aa02b4ff346e7eb8f68891}} 
+\index{main.cpp@{main.cpp}!deltaTime@{deltaTime}}
+\index{deltaTime@{deltaTime}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{deltaTime}{deltaTime}}
+{\footnotesize\ttfamily float delta\+Time}
+
+
+
+time between frames 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_ac21731ba101e28334c34543121caa841}\label{main_8cpp_ac21731ba101e28334c34543121caa841}} 
+\index{main.cpp@{main.cpp}!firstMouse@{firstMouse}}
+\index{firstMouse@{firstMouse}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{firstMouse}{firstMouse}}
+{\footnotesize\ttfamily bool first\+Mouse = true}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_abfd94a01fc71278021802ca0d1e25e16}\label{main_8cpp_abfd94a01fc71278021802ca0d1e25e16}} 
+\index{main.cpp@{main.cpp}!fov@{fov}}
+\index{fov@{fov}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{fov}{fov}}
+{\footnotesize\ttfamily float fov = 45.\+0f}
+
+
+
+for zooming in and out 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a0f82303de0f050cbc8ffe60f3769f1c9}\label{main_8cpp_a0f82303de0f050cbc8ffe60f3769f1c9}} 
+\index{main.cpp@{main.cpp}!isFullScreen@{isFullScreen}}
+\index{isFullScreen@{isFullScreen}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{isFullScreen}{isFullScreen}}
+{\footnotesize\ttfamily bool is\+Full\+Screen = false}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a518a497d888d805d5f368bbb91b54a6c}\label{main_8cpp_a518a497d888d805d5f368bbb91b54a6c}} 
+\index{main.cpp@{main.cpp}!lastFrame@{lastFrame}}
+\index{lastFrame@{lastFrame}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{lastFrame}{lastFrame}}
+{\footnotesize\ttfamily float last\+Frame}
+
+
+
+store last frame time for computing delta time 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a4664c5d930c290e6f82141a070cbea46}\label{main_8cpp_a4664c5d930c290e6f82141a070cbea46}} 
+\index{main.cpp@{main.cpp}!lastX@{lastX}}
+\index{lastX@{lastX}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{lastX}{lastX}}
+{\footnotesize\ttfamily float lastX = \mbox{\hyperlink{main_8cpp_aa4d434a8b93410ea0ed660e48dac41c6}{screen\+\_\+width}} / 2.\+0f}
+
+
+
+set cursor x position in center 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a9d5b8dfd025caf1c0ed043132515f587}\label{main_8cpp_a9d5b8dfd025caf1c0ed043132515f587}} 
+\index{main.cpp@{main.cpp}!lastY@{lastY}}
+\index{lastY@{lastY}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{lastY}{lastY}}
+{\footnotesize\ttfamily float lastY = \mbox{\hyperlink{main_8cpp_a3b4a1bd850991355b91c7bfc15247d49}{screen\+\_\+height}} / 2.\+0f}
+
+
+
+set cursor y position in center 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a282e7d4378d4a18a805b8980295ac86c}\label{main_8cpp_a282e7d4378d4a18a805b8980295ac86c}} 
+\index{main.cpp@{main.cpp}!pitch@{pitch}}
+\index{pitch@{pitch}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{pitch}{pitch}}
+{\footnotesize\ttfamily float pitch = 0}
+
+
+
+initial pitch of camera 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_adbe3ee8539b25ee048189f76945738a4}\label{main_8cpp_adbe3ee8539b25ee048189f76945738a4}} 
+\index{main.cpp@{main.cpp}!press@{press}}
+\index{press@{press}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{press}{press}}
+{\footnotesize\ttfamily int press = 0}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_aaa07b9226372fe795cd4c73aa1f2071a}\label{main_8cpp_aaa07b9226372fe795cd4c73aa1f2071a}} 
+\index{main.cpp@{main.cpp}!screen\_aspect@{screen\_aspect}}
+\index{screen\_aspect@{screen\_aspect}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{screen\_aspect}{screen\_aspect}}
+{\footnotesize\ttfamily float screen\+\_\+aspect = (float)\mbox{\hyperlink{main_8cpp_aa4d434a8b93410ea0ed660e48dac41c6}{screen\+\_\+width}} / (float)\mbox{\hyperlink{main_8cpp_a3b4a1bd850991355b91c7bfc15247d49}{screen\+\_\+height}}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a3b4a1bd850991355b91c7bfc15247d49}\label{main_8cpp_a3b4a1bd850991355b91c7bfc15247d49}} 
+\index{main.cpp@{main.cpp}!screen\_height@{screen\_height}}
+\index{screen\_height@{screen\_height}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{screen\_height}{screen\_height}}
+{\footnotesize\ttfamily int screen\+\_\+height = 1080}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_aa4d434a8b93410ea0ed660e48dac41c6}\label{main_8cpp_aa4d434a8b93410ea0ed660e48dac41c6}} 
+\index{main.cpp@{main.cpp}!screen\_width@{screen\_width}}
+\index{screen\_width@{screen\_width}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{screen\_width}{screen\_width}}
+{\footnotesize\ttfamily int screen\+\_\+width = 1920}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a2efc1e4b509cc5f0c2bffdfc7deb98b3}\label{main_8cpp_a2efc1e4b509cc5f0c2bffdfc7deb98b3}} 
+\index{main.cpp@{main.cpp}!worldUp@{worldUp}}
+\index{worldUp@{worldUp}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{worldUp}{worldUp}}
+{\footnotesize\ttfamily glm\+::vec3 world\+Up = glm\+::vec3(0.\+0f, 1.\+0f, 0.\+0f)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a7efc219781df4a1e281cb5d348b7fbf9}\label{main_8cpp_a7efc219781df4a1e281cb5d348b7fbf9}} 
+\index{main.cpp@{main.cpp}!yaw@{yaw}}
+\index{yaw@{yaw}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{yaw}{yaw}}
+{\footnotesize\ttfamily float yaw = -\/90}
+
+
+
+initial yaw of camera 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+

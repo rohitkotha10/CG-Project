@@ -1,0 +1,254 @@
+\hypertarget{class_c_g_1_1_mesh}{}\doxysection{CG\+::Mesh Class Reference}
+\label{class_c_g_1_1_mesh}\index{CG::Mesh@{CG::Mesh}}
+
+
+{\ttfamily \#include $<$mesh.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_g_1_1_mesh_a3529dba3376d36e2ffbc9cd870e3e828}{create\+Mesh}} (std\+::vector$<$ \mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}} $>$ \mbox{\hyperlink{class_c_g_1_1_mesh_ab54a8c841028d1b8c840e79e6afa0730}{vertices}}, std\+::vector$<$ GLuint $>$ \mbox{\hyperlink{class_c_g_1_1_mesh_aa679d8fb691712cbbfe205253c8752d0}{indices}}, std\+::vector$<$ \mbox{\hyperlink{struct_c_g_1_1_texture}{Texture}} $>$ \mbox{\hyperlink{class_c_g_1_1_mesh_a2a2e83767bfe7e902ff0ca0be53910fe}{textures}}, glm\+::vec4 \mbox{\hyperlink{class_c_g_1_1_mesh_a277b31dfa7d91444cb718cf1d5f1f39a}{color}})
+\begin{DoxyCompactList}\small\item\em set up data for passing into Open\+GL shaders \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_mesh_af753ef7a93778f17c97f7616f61e931d}{create\+Plane\+Texture}} (glm\+::vec3 center, float side, \mbox{\hyperlink{struct_c_g_1_1_texture}{Texture}} texture, float tex\+Scale)
+\begin{DoxyCompactList}\small\item\em generate a square on the xz plane at with center z \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_mesh_a90350f1c47dfe47fd28e244c7509fce3}{create\+Plane\+Color}} (glm\+::vec3 center, float side, glm\+::vec4 \mbox{\hyperlink{class_c_g_1_1_mesh_a277b31dfa7d91444cb718cf1d5f1f39a}{color}})
+\begin{DoxyCompactList}\small\item\em generate a square on the xz plane at with center z \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_mesh_a497801e3397453b0a77e3a9e6d5e89cb}{draw}} (\mbox{\hyperlink{class_c_g_1_1_program}{Program}} \&program)
+\begin{DoxyCompactList}\small\item\em draw all the vertices as triangles with help of gl\+Draw\+Elements \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_g_1_1_mesh_a420099219a84367faa00f2f750637c1e}{shutdown}} ()
+\begin{DoxyCompactList}\small\item\em clean up vertex arrays and buffers \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}} $>$ \mbox{\hyperlink{class_c_g_1_1_mesh_ab54a8c841028d1b8c840e79e6afa0730}{vertices}}
+\item 
+std\+::vector$<$ GLuint $>$ \mbox{\hyperlink{class_c_g_1_1_mesh_aa679d8fb691712cbbfe205253c8752d0}{indices}}
+\begin{DoxyCompactList}\small\item\em the indices for drawing triangles \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_c_g_1_1_texture}{Texture}} $>$ \mbox{\hyperlink{class_c_g_1_1_mesh_a2a2e83767bfe7e902ff0ca0be53910fe}{textures}}
+\begin{DoxyCompactList}\small\item\em textures to apply on mesh \end{DoxyCompactList}\item 
+glm\+::vec4 \mbox{\hyperlink{class_c_g_1_1_mesh_a277b31dfa7d91444cb718cf1d5f1f39a}{color}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLuint \mbox{\hyperlink{class_c_g_1_1_mesh_a42c34417b2930b0772a402f57ca4a106}{vao}}
+\begin{DoxyCompactList}\small\item\em vertex array object \end{DoxyCompactList}\item 
+GLuint \mbox{\hyperlink{class_c_g_1_1_mesh_ab07c250c22e0e55f954195c42c365cc7}{vbo}}
+\begin{DoxyCompactList}\small\item\em vertex buffer object \end{DoxyCompactList}\item 
+GLuint \mbox{\hyperlink{class_c_g_1_1_mesh_ad7d1bd9ed68ef7d0b2f376b44fb68044}{ebo}}
+\begin{DoxyCompactList}\small\item\em element buffer object \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{mesh_8h_source_l00005}{5}} of file \mbox{\hyperlink{mesh_8h_source}{mesh.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_g_1_1_mesh_a3529dba3376d36e2ffbc9cd870e3e828}\label{class_c_g_1_1_mesh_a3529dba3376d36e2ffbc9cd870e3e828}} 
+\index{CG::Mesh@{CG::Mesh}!createMesh@{createMesh}}
+\index{createMesh@{createMesh}!CG::Mesh@{CG::Mesh}}
+\doxysubsubsection{\texorpdfstring{createMesh()}{createMesh()}}
+{\footnotesize\ttfamily void CG\+::\+Mesh\+::create\+Mesh (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}} $>$}]{vertices,  }\item[{std\+::vector$<$ GLuint $>$}]{indices,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_c_g_1_1_texture}{Texture}} $>$}]{textures,  }\item[{glm\+::vec4}]{color }\end{DoxyParamCaption})}
+
+
+
+set up data for passing into Open\+GL shaders 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertices} & \\
+\hline
+{\em indices} & \\
+\hline
+{\em textures} & \\
+\hline
+{\em color} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mesh_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{mesh_8cpp_source}{mesh.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_mesh_a90350f1c47dfe47fd28e244c7509fce3}\label{class_c_g_1_1_mesh_a90350f1c47dfe47fd28e244c7509fce3}} 
+\index{CG::Mesh@{CG::Mesh}!createPlaneColor@{createPlaneColor}}
+\index{createPlaneColor@{createPlaneColor}!CG::Mesh@{CG::Mesh}}
+\doxysubsubsection{\texorpdfstring{createPlaneColor()}{createPlaneColor()}}
+{\footnotesize\ttfamily void CG\+::\+Mesh\+::create\+Plane\+Color (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{center,  }\item[{float}]{side,  }\item[{glm\+::vec4}]{color }\end{DoxyParamCaption})}
+
+
+
+generate a square on the xz plane at with center z 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & \\
+\hline
+{\em side} & \\
+\hline
+{\em color} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mesh_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{mesh_8cpp_source}{mesh.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_mesh_af753ef7a93778f17c97f7616f61e931d}\label{class_c_g_1_1_mesh_af753ef7a93778f17c97f7616f61e931d}} 
+\index{CG::Mesh@{CG::Mesh}!createPlaneTexture@{createPlaneTexture}}
+\index{createPlaneTexture@{createPlaneTexture}!CG::Mesh@{CG::Mesh}}
+\doxysubsubsection{\texorpdfstring{createPlaneTexture()}{createPlaneTexture()}}
+{\footnotesize\ttfamily void CG\+::\+Mesh\+::create\+Plane\+Texture (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{center,  }\item[{float}]{side,  }\item[{\mbox{\hyperlink{struct_c_g_1_1_texture}{Texture}}}]{texture,  }\item[{float}]{tex\+Scale }\end{DoxyParamCaption})}
+
+
+
+generate a square on the xz plane at with center z 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & \\
+\hline
+{\em side} & \\
+\hline
+{\em texture} & \\
+\hline
+{\em tex\+Scale} & how much factor the texture must be minimized to for the entire plane \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mesh_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{mesh_8cpp_source}{mesh.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_mesh_a497801e3397453b0a77e3a9e6d5e89cb}\label{class_c_g_1_1_mesh_a497801e3397453b0a77e3a9e6d5e89cb}} 
+\index{CG::Mesh@{CG::Mesh}!draw@{draw}}
+\index{draw@{draw}!CG::Mesh@{CG::Mesh}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void CG\+::\+Mesh\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_g_1_1_program}{Program}} \&}]{program }\end{DoxyParamCaption})}
+
+
+
+draw all the vertices as triangles with help of gl\+Draw\+Elements 
+
+
+\begin{DoxyParams}{Parameters}
+{\em program} & the shaders to use for drawing \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mesh_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{mesh_8cpp_source}{mesh.\+cpp}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_mesh_a420099219a84367faa00f2f750637c1e}\label{class_c_g_1_1_mesh_a420099219a84367faa00f2f750637c1e}} 
+\index{CG::Mesh@{CG::Mesh}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!CG::Mesh@{CG::Mesh}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void CG\+::\+Mesh\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+clean up vertex arrays and buffers 
+
+
+
+Definition at line \mbox{\hyperlink{mesh_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{mesh_8cpp_source}{mesh.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_c_g_1_1_mesh_a277b31dfa7d91444cb718cf1d5f1f39a}\label{class_c_g_1_1_mesh_a277b31dfa7d91444cb718cf1d5f1f39a}} 
+\index{CG::Mesh@{CG::Mesh}!color@{color}}
+\index{color@{color}!CG::Mesh@{CG::Mesh}}
+\doxysubsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily glm\+::vec4 CG\+::\+Mesh\+::color}
+
+
+
+Definition at line \mbox{\hyperlink{mesh_8h_source_l00016}{16}} of file \mbox{\hyperlink{mesh_8h_source}{mesh.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_mesh_ad7d1bd9ed68ef7d0b2f376b44fb68044}\label{class_c_g_1_1_mesh_ad7d1bd9ed68ef7d0b2f376b44fb68044}} 
+\index{CG::Mesh@{CG::Mesh}!ebo@{ebo}}
+\index{ebo@{ebo}!CG::Mesh@{CG::Mesh}}
+\doxysubsubsection{\texorpdfstring{ebo}{ebo}}
+{\footnotesize\ttfamily GLuint CG\+::\+Mesh\+::ebo\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+element buffer object 
+
+
+
+Definition at line \mbox{\hyperlink{mesh_8h_source_l00063}{63}} of file \mbox{\hyperlink{mesh_8h_source}{mesh.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_mesh_aa679d8fb691712cbbfe205253c8752d0}\label{class_c_g_1_1_mesh_aa679d8fb691712cbbfe205253c8752d0}} 
+\index{CG::Mesh@{CG::Mesh}!indices@{indices}}
+\index{indices@{indices}!CG::Mesh@{CG::Mesh}}
+\doxysubsubsection{\texorpdfstring{indices}{indices}}
+{\footnotesize\ttfamily std\+::vector$<$GLuint$>$ CG\+::\+Mesh\+::indices}
+
+
+
+the indices for drawing triangles 
+
+
+
+Definition at line \mbox{\hyperlink{mesh_8h_source_l00011}{11}} of file \mbox{\hyperlink{mesh_8h_source}{mesh.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_mesh_a2a2e83767bfe7e902ff0ca0be53910fe}\label{class_c_g_1_1_mesh_a2a2e83767bfe7e902ff0ca0be53910fe}} 
+\index{CG::Mesh@{CG::Mesh}!textures@{textures}}
+\index{textures@{textures}!CG::Mesh@{CG::Mesh}}
+\doxysubsubsection{\texorpdfstring{textures}{textures}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_c_g_1_1_texture}{Texture}}$>$ CG\+::\+Mesh\+::textures}
+
+
+
+textures to apply on mesh 
+
+
+
+Definition at line \mbox{\hyperlink{mesh_8h_source_l00015}{15}} of file \mbox{\hyperlink{mesh_8h_source}{mesh.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_mesh_a42c34417b2930b0772a402f57ca4a106}\label{class_c_g_1_1_mesh_a42c34417b2930b0772a402f57ca4a106}} 
+\index{CG::Mesh@{CG::Mesh}!vao@{vao}}
+\index{vao@{vao}!CG::Mesh@{CG::Mesh}}
+\doxysubsubsection{\texorpdfstring{vao}{vao}}
+{\footnotesize\ttfamily GLuint CG\+::\+Mesh\+::vao\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+vertex array object 
+
+
+
+Definition at line \mbox{\hyperlink{mesh_8h_source_l00055}{55}} of file \mbox{\hyperlink{mesh_8h_source}{mesh.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_mesh_ab07c250c22e0e55f954195c42c365cc7}\label{class_c_g_1_1_mesh_ab07c250c22e0e55f954195c42c365cc7}} 
+\index{CG::Mesh@{CG::Mesh}!vbo@{vbo}}
+\index{vbo@{vbo}!CG::Mesh@{CG::Mesh}}
+\doxysubsubsection{\texorpdfstring{vbo}{vbo}}
+{\footnotesize\ttfamily GLuint CG\+::\+Mesh\+::vbo\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+vertex buffer object 
+
+
+
+Definition at line \mbox{\hyperlink{mesh_8h_source_l00059}{59}} of file \mbox{\hyperlink{mesh_8h_source}{mesh.\+h}}.
+
+\mbox{\Hypertarget{class_c_g_1_1_mesh_ab54a8c841028d1b8c840e79e6afa0730}\label{class_c_g_1_1_mesh_ab54a8c841028d1b8c840e79e6afa0730}} 
+\index{CG::Mesh@{CG::Mesh}!vertices@{vertices}}
+\index{vertices@{vertices}!CG::Mesh@{CG::Mesh}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_c_g_1_1_vertex}{Vertex}}$>$ CG\+::\+Mesh\+::vertices}
+
+
+
+Definition at line \mbox{\hyperlink{mesh_8h_source_l00007}{7}} of file \mbox{\hyperlink{mesh_8h_source}{mesh.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{mesh_8h}{mesh.\+h}}\item 
+src/\mbox{\hyperlink{mesh_8cpp}{mesh.\+cpp}}\end{DoxyCompactItemize}
