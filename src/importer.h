@@ -13,7 +13,14 @@ namespace CG {
          * @param path source directory
          */
         void loadModel(std::string path);
+        /**
+         * @brief draw all the meshes in the model
+         * @param program the shader program to use for rendering
+         */
         void draw(Program& program);
+        /**
+         * @brief clean up all the meshes in the model
+         */
         void shutdown();
 
     private:
